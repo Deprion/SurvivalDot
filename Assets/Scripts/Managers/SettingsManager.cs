@@ -1,29 +1,28 @@
-﻿using UnityEngine;
+﻿using Mirror;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SettingsManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject settingsPanel;
-    [SerializeField]
     private GameObject exitButton;
 
     private void Awake()
     {
-        if (SceneManager.GetActiveScene().name == "MainScene") return;
-
-        Instantiate(exitButton);
+        CheckScene();
     }
 
-    private void Update()
+    private void CheckScene()
     {
-        if (Input.GetButtonDown("Cancel"))
-        {
-            settingsPanel.SetActive(!settingsPanel.activeSelf);
-        }
+        if (SceneManager.GetActiveScene().name == "MainScene") exitButton.SetActive(false);
     }
-    public void ChangeSettingPanelState()
+
+    public void LeaveToMain()
     {
-        settingsPanel.SetActive(!settingsPanel.activeSelf);
+        NetworkManager man = GameObject.FindGameObjectWithTag("NetworkManager").
+            GetComponent<NetworkManager>();
+
+        man.StopHost();
+        man.StopClient();
     }
 }

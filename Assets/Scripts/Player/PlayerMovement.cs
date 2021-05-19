@@ -1,6 +1,7 @@
 ﻿using Mirror;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : NetworkBehaviour
 {
     private Rigidbody2D body;

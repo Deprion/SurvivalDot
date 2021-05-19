@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - NetworkManager
+  - GameManager
+  - MainCanvas
   layers:
   - Default
   - TransparentFX
@@ -41,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Characters
+    uniqueID: 704210269
+    locked: 0
+  - name: UI
+    uniqueID: 822672375
     locked: 0
